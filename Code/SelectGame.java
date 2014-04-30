@@ -16,8 +16,7 @@ public class SelectGame {
 	 * A method to draw GUI for SelectGame.
 	 */
 	public void Draw() {
-		final int Y_COORD = 2;
-		
+				
 		boolean test = false;
 		if (test || m_test){
 			System.out.println("SelectGame :: Draw() BEGIN");
@@ -29,6 +28,8 @@ public class SelectGame {
 		m_othello_Button = new JButton("Othello");
 	
 		m_connectFour_Button = new JButton("Connect Four");
+		
+		m_ticTacToe_Button = new JButton("Tic Tac Toe");
 		
 		loadGame = new JButton("Load Last Save");
 	
@@ -56,8 +57,12 @@ public class SelectGame {
 		c.gridy = BTN_CONNECT4_Y;
 		m_content.add(m_connectFour_Button, c);
 		
-		c.gridy = Y_COORD;
-		c.gridx = 0;
+		c.gridx = BTN_TICTACTOE_X;
+		c.gridy = BTN_TICTACTOE_Y;
+		m_content.add(m_ticTacToe_Button, c);
+				
+		c.gridx = BTN_LOAD_X;
+		c.gridy = BTN_LOAD_Y;
 		c.gridwidth = GridBagConstraints.REMAINDER;
 		m_content.add(loadGame, c);
 	
@@ -65,6 +70,7 @@ public class SelectGame {
 	
 		m_othello_Button.addActionListener(handler);
 		m_connectFour_Button.addActionListener(handler);
+		m_ticTacToe_Button.addActionListener(handler);
 		loadGame.addActionListener(handler);
 		m_display.add(m_content);
 	
@@ -110,6 +116,15 @@ public class SelectGame {
 				}
 			}
 			
+			if (event.getSource() == m_ticTacToe_Button) {
+				
+				Selection s3 = new Selection(GameController.GameType.TICTACTOE);
+				m_display.dispose();
+				if (test || m_test){
+					System.out.println("SelectGame :: actionPerformed() END");
+				}
+			}
+			
 			if (event.getSource() == loadGame) {
 				new LoadManager();
 			}
@@ -140,6 +155,9 @@ public class SelectGame {
 	 * connectFour_Button is a JButton to select Connect Four game
 	 */
 	private JButton m_connectFour_Button;
+	
+	private JButton m_ticTacToe_Button;
+	
 	/**
 	 * content is a JPanel to hold buttons and labels. content will use
 	 * GridBagLayout. 
@@ -201,5 +219,25 @@ public class SelectGame {
 	 */
 	private final int BTN_CONNECT4_Y = 1;
 	
+	/**
+	 * BTN_TICTACTOE_X sets position y of ticTacToe_Button. Using GridBagLayout
+	 */
+	private final int BTN_TICTACTOE_X = 0;
+	
+	/**
+	 * BTN_TICTACTOE_Y sets position y of ticTacToe_Button. Using GridBagLayout
+	 */
+	private final int BTN_TICTACTOE_Y = 2;
+	
+	/**
+	 * BTN_LOAD_X sets position x of loadGame button. Using GridBagLayout
+	 */
+	private final int BTN_LOAD_X = 1;
+
+	/**
+	 * BTN_LOAD_X sets position y of loadGame button. Using GridBagLayout
+	 */
+	private final int BTN_LOAD_Y = 2;
+
 	private boolean m_test=false;
 }

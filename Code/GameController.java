@@ -221,6 +221,9 @@ public class GameController {
 			m_GUI = new Connect4GUI(m_board, this);
 			m_AnimationController = new Connect4Animation(m_GUI);
 			((Connect4Animation) m_AnimationController).setAnimationPane();
+		} else if (gameType == GameType.TICTACTOE) {
+			m_board = new ConnectFour();
+			m_GUI = new TicTacToeGUI(m_board, this);
 		}
 		m_board.SetAnimationController(m_AnimationController);
 		
@@ -308,7 +311,7 @@ public class GameController {
 	
 	}
 
-	public enum GameType {OTHELLO, CONNECTFOUR};
+	public enum GameType {OTHELLO, CONNECTFOUR, TICTACTOE};
 	/**Identifier for the GUI*/
 	private GUI m_GUI;
 	private Animation m_AnimationController;
