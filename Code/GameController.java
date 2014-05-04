@@ -222,7 +222,7 @@ public class GameController {
 			m_AnimationController = new Connect4Animation(m_GUI);
 			((Connect4Animation) m_AnimationController).setAnimationPane();
 		} else if (gameType == GameType.TICTACTOE) {
-			m_board = new ConnectFour();
+			m_board = new TicTacToe();
 			m_GUI = new TicTacToeGUI(m_board, this);
 		}
 		m_board.SetAnimationController(m_AnimationController);
@@ -230,6 +230,7 @@ public class GameController {
 		GetGUI().DrawPieces();
 		GetGUI().setPanelColour();
 	}
+	
 	
 	 /**
 	  * Constructor of GameController.
@@ -249,11 +250,25 @@ public class GameController {
 				setCurrentPlayer(getPlayer1());
 			} else if (getPlayer2().GetPieceColour() == Color.BLACK){
 				setCurrentPlayer(getPlayer2());
+			
 			} else {
 				setCurrentPlayer(getPlayer1());
 				System.err.println("GameController::GameController() Error,"
 						+ "Current player is not valid");
 			}
+		}else if (gt == GameType.TICTACTOE) {
+			if(getPlayer1().GetPieceColour() == Color.BLACK) {
+				setCurrentPlayer(getPlayer1());
+			} else if (getPlayer2().GetPieceColour() == Color.BLACK){
+				setCurrentPlayer(getPlayer2());
+			
+			} else {
+				setCurrentPlayer(getPlayer1());
+				System.err.println("GameController::GameController() Error,"
+						+ "Current player is not valid");
+			}
+
+			
 		}
 		SetUp(gt);
 		

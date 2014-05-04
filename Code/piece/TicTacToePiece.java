@@ -25,19 +25,19 @@ public class TicTacToePiece extends GamePiece{
     public Icon GetIcon() {
         boolean test = false;
         if (test || m_test) {
-            System.out.println("OthelloPiece :: getIcon() BEGIN");
+            System.out.println("TicTacToePiece :: getIcon() BEGIN");
         }
         if (m_iconsSet) {
             if (GetColour() == Color.BLACK) {
                 if (test || m_test) {
-                System.out.println("OthelloPiece :: getIcon() END");
+                System.out.println("TicTacToePiece :: getIcon() END");
                 }
-                return m_blackpiece;
+                return m_crossPiece;
             } else if (GetColour() == Color.WHITE){
                 if (test || m_test) {
-                System.out.println("OthelloPiece :: getIcon() END");
+                System.out.println("TicTacToePiece :: getIcon() END");
                 }
-                return m_whitepiece;
+                return m_naughtPiece;
             } else {
             	return null;
             }
@@ -53,20 +53,19 @@ public class TicTacToePiece extends GamePiece{
     public boolean SetIcons()  throws NullPointerException {
         boolean test = false;
         if (test || m_test) {
-            System.out.println("OthelloPiece :: setIcons() BEGIN");
+            System.out.println("TicTacToePiece :: setIcons() BEGIN");
         }
-        
         String crossImageURL = "cross.png";
         String naughtImageURL = "naught.png";
         
         try {
-            m_blackpiece = new ImageIcon
+            m_crossPiece = new ImageIcon
             (getClass().getResource(crossImageURL));
-            m_whitepiece = new ImageIcon
+            m_naughtPiece = new ImageIcon
             (getClass().getResource(naughtImageURL));
             
             if (test || m_test) {
-            System.out.println("OthelloPiece :: setIcons() END");
+            System.out.println("TicTacToePiece :: setIcons() END");
             }
             
             return true;
@@ -75,20 +74,20 @@ public class TicTacToePiece extends GamePiece{
         }
         
         if (test || m_test) {
-        	System.out.println("OthelloPiece :: setIcons() END");
+        	System.out.println("TicTacToePiece :: setIcons() END");
         }
         
         return false;
     }
     
     /**
-     * Constructor of OthelloPiece, calls  setColour() and setIcons()
+     * Constructor of TicTacToePiece, calls  setColour() and setIcons()
      * \param col a String to set colour using setColour() of the superclass
      */
     public TicTacToePiece(Color col) {
         boolean test = false;
         if (test || m_test) {
-            System.out.println("OthelloPiece :: OthelloPiece() BEGIN");
+            System.out.println("TicTacToePiece :: TicTacToePiece() BEGIN");
         }
         
         if (col == Color.WHITE || col == Color.BLACK) {
@@ -99,18 +98,18 @@ public class TicTacToePiece extends GamePiece{
         }
         
         if (test || m_test) {
-            System.out.println("OthelloPiece :: OthelloPiece() END");
+            System.out.println("TicTacToePiece :: TicTacToePiece() END");
         }
     }
        
     /** main method for tests */
     public static void main(String[] args) {
-        OthelloPiece a = new OthelloPiece(Color.RED);
+        TicTacToePiece a = new TicTacToePiece(Color.BLACK);
         a.GetIcon();
         a.SetIcons();
         a.GetColour();
         
-        OthelloPiece b = new OthelloPiece(Color.BLACK);
+        TicTacToePiece b = new TicTacToePiece(Color.WHITE);
         b.GetIcon();
         b.SetIcons();
         b.GetColour();
@@ -124,9 +123,9 @@ public class TicTacToePiece extends GamePiece{
     private final String m_black = "black";
     /** store the black icon */
 
-    private Icon m_blackpiece;
+    private Icon m_crossPiece;
     /** store the white icon */
-    private Icon m_whitepiece;
+    private Icon m_naughtPiece;
     /** Indicates whether to run tests */
     private boolean m_test = false;
 }

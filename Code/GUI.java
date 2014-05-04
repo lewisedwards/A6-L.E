@@ -398,6 +398,8 @@ public abstract class GUI extends JFrame {
 		 */
 		private void playerMove(MouseEvent e) {
 			boolean moveComplete = false;
+			System.out.println(GetGame());
+			System.out.println(GetGame().GetCurrent().GetPieceColour());
 			for (int y = 0; y < HEIGHT; y++) {
 				for (int x = 0; x < WIDTH; ++x) {
 					if (e.getSource() == GetPanel()[x][y]) {

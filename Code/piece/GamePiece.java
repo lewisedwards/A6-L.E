@@ -27,7 +27,6 @@ public abstract class GamePiece {
         if (test || m_test) {
             System.out.println("GamePiece :: setColour() BEGIN");
         }
-        
         m_colour = col;
         
         if (test || m_test) {

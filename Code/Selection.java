@@ -144,6 +144,9 @@ public class Selection implements ActionListener {
 			if (GetGameType() == GameController.GameType.OTHELLO) {
 				color1 = Color.BLACK;
 				color2 = Color.WHITE;
+			} else if (GetGameType() == GameController.GameType.TICTACTOE) {
+				color1 = Color.BLACK;
+				color2 = Color.WHITE;
 			} else {
 				color1 = Color.RED;
 				color2 = Color.YELLOW;

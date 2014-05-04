@@ -117,7 +117,6 @@ public class SelectGame {
 			}
 			
 			if (event.getSource() == m_ticTacToe_Button) {
-				
 				Selection s3 = new Selection(GameController.GameType.TICTACTOE);
 				m_display.dispose();
 				if (test || m_test){

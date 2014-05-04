@@ -2,7 +2,7 @@ import java.awt.Color;
 
 import javax.swing.JPanel;
 
-import piece.ConnectFourPiece;
+import piece.TicTacToePiece;
 import piece.GamePiece;
 /**
  * \\file - TicTacToe.java 
@@ -20,7 +20,7 @@ import piece.GamePiece;
  */
 public class TicTacToe extends BoardGame {
 	/**
-	 * This is the constructor for the ConnectFour It passes the height and the
+	 * This is the constructor for the TicTacToe It passes the height and the
 	 * width to the BoardGame class for constructing the game board.
 	 * 
 	 */
@@ -29,15 +29,15 @@ public class TicTacToe extends BoardGame {
 	
         boolean test = false;
         if (test || m_Test) {
-            System.out.println("ConnectFour :: ConnectFour() BEGIN");
+            System.out.println("TicTacToe :: TicTacToe() BEGIN");
         }		        
         if (test || m_Test) {
-            System.out.println("ConnectFour :: ConnectFour() END");
+            System.out.println("TicTacToe :: TicTacToe() END");
         }
 	}
 
 	/**
-	 * Place the ConnectFour piece on the game board \param x the x axis in the
+	 * Place the TicTacToe piece on the game board \param x the x axis in the
 	 * game board. 
 	 * \param y the y axis in the game board. \param col the color
 	 * of the game piece. 
@@ -46,17 +46,17 @@ public class TicTacToe extends BoardGame {
 	public boolean SetPiece(int x, int y, Color col) {
         boolean test = false;
         if (test || m_Test) {
-            System.out.println("ConnectFour :: SetPiece() BEGIN");
+            System.out.println("TicTacToe :: SetPiece() BEGIN");
         }
         if(x < GetWidth() && x >= 0 && y < GetHeight() && y >= 0) {
-		m_board[x][y] = new ConnectFourPiece(col);
+		m_board[x][y] = new TicTacToePiece(col);
         	if (test || m_Test) {
-        		System.out.println("ConnectFour :: SetPiece() END");
+        		System.out.println("TicTacToe :: SetPiece() END");
         	}
 		return true;
         } else {
         	if (test || m_Test) {
-        		System.out.println("ConnectFour :: SetPiece() END");
+        		System.out.println("TicTacToe :: SetPiece() END");
         	}
 		return false;
         }
@@ -73,7 +73,7 @@ public class TicTacToe extends BoardGame {
 	private boolean allDirection(Color col, int x, int index_y) {
         boolean test = false;
         if (test || m_Test) {
-            System.out.println("ConnectFour :: allDirection() BEGIN");
+            System.out.println("TicTacToe :: allDirection() BEGIN");
         }
         
 		// Search each direction (total : 8 direction)
@@ -81,14 +81,14 @@ public class TicTacToe extends BoardGame {
 			for (int j = -1; j <= 1; j++) {
 				if(singleDirection(col, x , index_y, i ,j)){
 					if (test || m_Test) {
-			        System.out.println("ConnectFour :: allDirection() END");
+			        System.out.println("TicTacToe :: allDirection() END");
 			        }
 					return true;
 				}
 			}
 		}
         if (test || m_Test) {
-            System.out.println("ConnectFour :: allDirection() END");
+            System.out.println("TicTacToe :: allDirection() END");
         }
 		return false;
 	}
@@ -108,7 +108,7 @@ public class TicTacToe extends BoardGame {
 	private boolean singleDirection(Color col, int x,int index_y,int i, int j){
         boolean test = false;
         if (test || m_Test) {
-            System.out.println("ConnectFour :: singleDirection() BEGIN");
+            System.out.println("TicTacToe :: singleDirection() BEGIN");
         }
 
 		GamePiece searchPiece;
@@ -142,7 +142,7 @@ public class TicTacToe extends BoardGame {
 					m_WinningColour = col;
 				    if (test || m_Test) {
 				    System.out.println(col + " wins");
-				    System.out.println("ConnectFour :"
+				    System.out.println("TicTacToe :"
 				    + ": singleDirection() END");
 				    }
 					return true;
@@ -153,7 +153,7 @@ public class TicTacToe extends BoardGame {
 			}
 		}
         if (test || m_Test) {
-            System.out.println("ConnectFour :: singleDirection() END");
+            System.out.println("TicTacToe :: singleDirection() END");
         }
 		return false;
 	}
@@ -168,14 +168,14 @@ public class TicTacToe extends BoardGame {
 	private boolean checkWin(Color col){
         boolean test = false;
         if (test || m_Test) {
-            System.out.println("ConnectFour :: checkWin() BEGIN");
+            System.out.println("TicTacToe :: checkWin() BEGIN");
         }
 
 		for (int x = 0; x <= GetWidth(); x++) {
 			for (int index_y = 0; index_y <= GetHeight(); index_y++) {
 				if(allDirection(col, x , index_y)){
 			        if (test || m_Test) {
-			        System.out.println("ConnectFour :"
+			        System.out.println("TicTacToe :"
 			        + ": singleDirection() END");
 			        }
 					return true;
@@ -183,7 +183,7 @@ public class TicTacToe extends BoardGame {
 			}
 		}
         if (test || m_Test) {
-            System.out.println("ConnectFour :: checkWin() END");
+            System.out.println("TicTacToe :: checkWin() END");
         }
 		return false;
 	}
@@ -200,30 +200,33 @@ public class TicTacToe extends BoardGame {
 	public boolean Move(int x, int y, Color col) {
         boolean test = false;
         if (test || m_Test) {
-            System.out.println("ConnectFour :: Move() BEGIN");
+            System.out.println("TicTacToe :: Move() BEGIN");
         }
-        
+ 
 		int index = 0;
-		if (m_board[x][0] == null) {
-			for (int h = 0; h < GetHeight(); ++h) {
-				if (m_board[x][h] == null) {
-					index = h;
-				}
-			}
-			//TODO GetAnimationController().animate(x,index,col) here?
-			GetAnimationController().animate(x,index,col,0);
+		
+		if (m_board[x][y] == null) {
+//			for (int h = 0; h < GetHeight(); ++h) {
+//				if (m_board[x][h] == null) {
+//					index = h;
+//				}
+//			}
 			
-			SetPiece(x, index, col);
+			//TODO GetAnimationController().animate(x,index,col) here?
+			//GetAnimationController().animate(x,index,col,0);
+			
+			//SetPiece(x, index, col);
+			SetPiece(x, y, col);
 			
 			checkWin(col);
             if (test || m_Test) {
-                System.out.println("ConnectFour :: Move() END :: true");
+                System.out.println("TicTacToe :: Move() END :: true");
             }
 			return true;
 		} else {
 			System.out.println("Space Occupied");
             if (test || m_Test) {
-                System.out.println("ConnectFour :: Move() END :: false");
+                System.out.println("TicTacToe :: Move() END :: false");
             }
 			return false;
 		}
@@ -236,7 +239,7 @@ public class TicTacToe extends BoardGame {
 	 * \param winner - the colour of the winner
 	 */
 	public void HighlightWinners(JPanel[][] panels, Color winner) {
-		System.out.println("ConnectFour :: HighlightWinners");
+		System.out.println("TicTacToe :: HighlightWinners");
 		for (int y = 0; y < GetHeight(); y++) {
 			for (int x = 0; x < GetWidth(); x++) {
 				if (RightHighlight(panels, winner, x, y)) return;
@@ -372,13 +375,13 @@ public class TicTacToe extends BoardGame {
 	public boolean WinningCondition() {
         boolean test = false;
         if (test || m_Test) {
-            System.out.println("ConnectFour :: WinningCondition() BEGIN");
+            System.out.println("TicTacToe :: WinningCondition() BEGIN");
         }
 
 		if (m_counter >= NUM_IN_ROW_WIN) {
 			SetWinner();
 	        if (test || m_Test) {
-	            System.out.println("ConnectFour :: singleDirection() END");
+	            System.out.println("TicTacToe :: singleDirection() END");
 	        }
 			return true;
 		}
@@ -387,7 +390,7 @@ public class TicTacToe extends BoardGame {
 			if (m_board[x][0] == null) {
 				m_Draw = false;
 		        if (test || m_Test) {
-		            System.out.println("ConnectFour :: singleDirection() END");
+		            System.out.println("TicTacToe :: singleDirection() END");
 		        }
 				return m_Draw;
 			}
@@ -396,12 +399,12 @@ public class TicTacToe extends BoardGame {
 			m_WinningColour = null;
 			SetWinner();
 	        if (test || m_Test) {
-	            System.out.println("ConnectFour :: singleDirection() END");
+	            System.out.println("TicTacToe :: singleDirection() END");
 	        }
 			return true;
 		}
         if (test || m_Test) {
-            System.out.println("ConnectFour :: WinningCondition() END");
+            System.out.println("TicTacToe :: WinningCondition() END");
         }
 		return false;
 	}
@@ -432,11 +435,11 @@ public class TicTacToe extends BoardGame {
 	public boolean SetWinner() {
         boolean test = false;
         if (test || m_Test) {
-            System.out.println("ConnectFour :: SetWinner() BEGIN");
+            System.out.println("TicTacToe :: SetWinner() BEGIN");
         }
 		SetWinningColour(m_WinningColour);
 		if (test || m_Test) {
-			System.out.println("ConnectFour :: SetWinner() END");
+			System.out.println("TicTacToe :: SetWinner() END");
 		}
 		return true;
 		
@@ -501,7 +504,7 @@ public class TicTacToe extends BoardGame {
     /** main method for tests */
 	/**
     public static void main(String[] args) {
-        ConnectFour a = new ConnectFour();
+        TicTacToe a = new TicTacToe();
         a.SetPiece(3,3,Color.RED);
         a.allDirection(Color.YELLOW,4,4);
         a.singleDirection(Color.RED,2,3,4,5);
@@ -522,9 +525,9 @@ public class TicTacToe extends BoardGame {
 	private Color m_WinningColour;
 	//The following two int's are static due to calling the BoardGame in method.
 	/**Sets the Size in BoardGame (is static due to calling the BoardGame in method*/
-	private final static int INITIAL_X = 10;
+	private final static int INITIAL_X = 8;
 	/**Sets the Size in BoardGame (is static due to calling the BoardGame in method*/
-	private final static int INITIAL_Y = 7;
+	private final static int INITIAL_Y = 8;
 	/**The number of pieces in a row required to have a win*/
 	private final int NUM_IN_ROW_WIN = 4;
 	/**Used for testing purposes*/
