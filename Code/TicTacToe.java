@@ -16,11 +16,12 @@ import piece.GamePiece;
  * \brief TicTacToe is used to store the game rules and control the game board 
  * extends BoardGame.java
  * 
- * REMEMBER TO ADD DISCRIPTION
+ * An extension of the boardGame class. Holds the game rules for a game of 
+ * the game TicTacToe2
  */
 public class TicTacToe extends BoardGame {
 	/**
-	 * This is the constructor for the TicTacToe It passes the height and the
+	 * This is the constructor for TicTacToe. It passes the height and the
 	 * width to the BoardGame class for constructing the game board.
 	 * 
 	 */
@@ -385,16 +386,7 @@ public class TicTacToe extends BoardGame {
 	        }
 			return true;
 		}
-		m_Draw = true;
-		for (int x = 0; x < GetWidth(); x++) {
-			if (m_board[x][0] == null) {
-				m_Draw = false;
-		        if (test || m_Test) {
-		            System.out.println("TicTacToe :: singleDirection() END");
-		        }
-				return m_Draw;
-			}
-		}
+	
 		if (m_Draw == true) {
 			m_WinningColour = null;
 			SetWinner();
