@@ -29,7 +29,7 @@ public class SelectGame {
 	
 		m_connectFour_Button = new JButton("Connect Four");
 		
-		m_ticTacToe_Button = new JButton("Tic Tac Toe");
+		m_ticTacToe_Button = new JButton("TicTacToe2");
 		
 		loadGame = new JButton("Load Last Save");
 	

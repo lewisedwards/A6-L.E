@@ -55,16 +55,16 @@ public class TicTacToeGUI extends GUI {
 		m_playerTurnLabel.setFont(FONT);
 		m_playerTurnLabel.setVisible(true);
 		m_blackIcon.setIcon(black.GetIcon());
-		m_blackIcon.setVisible(true);
+		//m_blackIcon.setVisible(true);
 		//m_blackPieces.setText(((TicTacToe) (GetBoard())).GetBlackScore() + "");
 		m_blackPieces.setFont(FONT);
 		m_blackPieces.setVisible(true);
 		m_whiteIcon.setIcon(white.GetIcon());
-		m_whiteIcon.setVisible(true);
+		//m_whiteIcon.setVisible(true);
 		//m_whitePieces.setText(((TicTacToe) (GetBoard())).GetWhiteScore() + "");
 		m_whitePieces.setFont(FONT);
 		m_whitePieces.setVisible(true);
-		PASSMOVE.setVisible(true);
+		//PASSMOVE.setVisible(true);
 		FRAME.pack();
 		
 		if (test || m_test){
@@ -117,9 +117,9 @@ public class TicTacToeGUI extends GUI {
 	}
 	/** boolean turn to true to print out begining and ends of methods*/
 	boolean m_test = false;
-	private final int BACK_RED = 170;
-	private final int BACK_GREEN = 150;
-	private final int BACK_BLUE = 100;
+	private final int BACK_RED = 255;
+	private final int BACK_GREEN = 255;
+	private final int BACK_BLUE = 255;
 	/** background colour */
 	private final Color BACKGROUND_COLOR = 
 			new Color(BACK_RED, BACK_GREEN, BACK_BLUE);
