@@ -25,8 +25,7 @@ import piece.TicTacToePiece;
 public class TicTacToeGUI extends GUI {
 
 	 /**
-     * Set the player names, scores, player turn, the pass and new game button
-     *  to display on screen.
+     * Set the player names and player turn to the screen.
      * \return boolean  return true if the action complete.
      */	
 	public boolean setInfo() {

@@ -386,7 +386,16 @@ public class TicTacToe extends BoardGame {
 	        }
 			return true;
 		}
-	
+		/*m_Draw = true;
+		for (int x = 0; x < GetWidth(); x++) {
+			if (m_board[x][0] == null) {
+				m_Draw = false;
+		        if (test || m_Test) {
+		            System.out.println("TicTacToe :: singleDirection() END");
+		        }
+				return m_Draw;
+			}
+		} */
 		if (m_Draw == true) {
 			m_WinningColour = null;
 			SetWinner();
